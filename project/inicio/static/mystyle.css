@@ -1,0 +1,169 @@
+body {
+  font-family: "Inter", sans-serif;
+  color: white;
+  background-image: url("minecraft-background.webp");
+  background-attachment: fixed;
+}
+
+
+.ul_btn {
+  list-style-type: none;
+  margin: 0;
+  padding: 0px;
+  overflow: hidden;
+  background-color: #333;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
+}
+
+li {
+  float: left;
+}
+.der {
+    float: right;
+}
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 20px 16px;
+  text-decoration: none;
+}
+.brand {
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 20px;
+}
+
+
+li a:hover {
+  background-color: #111;
+}
+li:not(.sin-hover) a:hover {
+  background-color: #111;
+}
+.active {
+    background-color: #04AA6D;
+  }
+.form{
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  max-width: 400px; 
+  margin: 50px auto; 
+}
+.text-block {
+  opacity: 0.91;
+  background-color: white;
+  padding: 10px;
+  border-radius: 10px;
+  color: black;
+  width: 1000px;
+  margin: auto;
+  
+}
+.perfil-container {
+  display: inline-block;
+}
+.defpfp {
+  height: 30px;
+  width: auto;
+}
+#imagenAumentable {
+  height: 200px; 
+  transition: width 0.3s ease;
+  cursor: pointer;
+}
+
+#imagenAumentable.ampliada {
+  width: 400px; 
+}
+.search-bar {
+  display: inline-block;
+  margin: auto;
+  width: 50%
+}
+
+input[type="text"] {
+  padding: 5px;
+  border: none;
+  border-radius: 3px;
+}
+
+
+
+.button-like {
+  border: 2px solid #8a8a8a;
+  background-color: transparent;
+  text-decoration: none;
+  padding: 1rem;
+  position: relative;
+  vertical-align: middle;
+  text-align: center;
+  display: inline-block;
+  border-radius: 3rem;
+  color: #8a8a8a;
+  transition: all ease 0.4s;
+}
+
+.button-like span {
+  margin-left: 0.5rem;
+}
+
+.button-like .fa,
+.button-like span {
+  transition: all ease 0.4s;
+}
+
+.button-like:focus {
+  background-color: transparent;
+}
+
+.button-like:focus .fa,
+.button-like:focus span {
+  color: #8a8a8a;
+}
+
+.button-like:hover {
+  border-color: #cc4b37;
+  background-color: transparent;
+}
+
+.button-like:hover .fa,
+.button-like:hover span {
+  color: #cc4b37;
+}
+
+.liked {
+  background-color: #cc4b37;
+  border-color: #cc4b37;
+}
+
+.liked .fa,
+.liked span {
+  color: #fefefe;
+}
+
+.liked:focus {
+  background-color: #cc4b37;
+}
+
+.liked:focus .fa,
+.liked:focus span {
+  color: #fefefe;
+}
+
+.liked:hover {
+  background-color: #cc4b37;
+  border-color: #cc4b37;
+}
+
+.liked:hover .fa,
+.liked:hover span {
+  color: #fefefe;
+}
+
+.alist {
+  list-style-type:circle;
+}

@@ -1,0 +1,70 @@
+body {
+  font-family: "Inter", sans-serif;
+  color: white;
+  background-image: url("minecraft-background.webp")
+}
+
+
+.ul_btn {
+  list-style-type: none;
+  margin: 0;
+  padding: 0px;
+  overflow: hidden;
+  background-color: #333;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
+}
+
+li {
+  float: left;
+}
+.der {
+    float: right;
+}
+li a {
+  display: block;
+  color: red;
+  text-align: center;
+  padding: 20px 16px;
+  text-decoration: none;
+}
+.brand {
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 20px;
+}
+
+
+li a:hover {
+  background-color: #111;
+}
+li:not(.sin-hover) a:hover {
+  background-color: #111;
+}
+.active {
+    background-color: #04AA6D;
+  }
+.form{
+  background-color: white; /* Color blanco para el bloque del formulario */
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  max-width: 400px; /* Ajusta el ancho según tus necesidades */
+  margin: 50px auto; /* Centra el bloque en la página */
+}
+.text-block {
+  background-color: #fff;
+  padding: 10px;
+  border-radius: 10px; /* Puedes ajustar el radio para redondear las esquinas */
+  color: black;
+  width: 1000px;
+  margin: auto;
+  
+}
+.perfil-container {
+  display: inline-block;
+}
+.defpfp {
+  height: 30px; /* Ajusta la altura según tu preferencia */
+  width: auto; /* Esto mantiene la proporción original de la imagen */
+}

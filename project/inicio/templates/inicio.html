@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{%load static%}
+
+{%block content%}
+  <center style="color:white">
+    <br><br><br>
+    <img height=80 src="{%static 'minecraft-title.png'%}" alt="minecraft-title">
+    {%if user.is_authenticated%}
+      <div style="width=auto" class="text-block">
+      
+        <h1>Hola, {{user}}!</h1>
+      
+      </div>
+    {%endif%}
+  </center>
+{% endblock %}

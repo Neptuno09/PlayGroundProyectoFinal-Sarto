@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <br>
+<div class="text-block">
+    <h2>Seleccionar destinatario</h2>
+    <ul>
+        {% for user in users %}
+        <h2>
+            <a class="alist" href="{% url 'send_message' recipient_username=user.username %}">{{ user.username }}</a>
+        </h2>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock %}

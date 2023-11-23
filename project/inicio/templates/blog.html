@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% load tz %}
+{%block content%}
+    <br>
+    {%if user.is_authenticated%}
+        <div class="text-block"
+            <h2>Crea una nueva entrada de blog</h2>
+            <br>
+            <form method="post" enctype="multipart/form-data">{% csrf_token %}
+                {{ blog_form.as_p }}
+                <button type="submit">Publicar</button>
+            </form>
+        
+        </div>
+    {%else%}
+        <div class="text-block"
+        <h2>Para crear entradas de blog, primero debes iniciar sesión.</h2>
+    </div>
+    {%endif%}
+
+    <br>
+    <div class="text-block">
+        <h2>Blogs</h2>
+    </div>
+        <br>
+        {% if entries %}
+            {% for entry in entries %}
+                <div class="text-block">
+                    <p><a href="{% url 'blog_detail' entry.id %}">{{ entry.author }}, {{ entry.Titulo }}</a></p>
+                    </div>
+                    <br>
+            {% endfor %}
+        {% else %}
+            <p>No hay blogs creados aún.</p>
+        {% endif %}
+    </div>
+{%endblock%}

@@ -1,0 +1,24 @@
+{%extends "base.html"%}
+
+{%block content%}
+<br>
+<div class="text-block">
+    <form method="get" action="">
+        {{ search_form }}
+        <button type="submit">Buscar</button>
+    </form>
+</div>
+<br>
+{% if resultados %}
+    <div class="text-block">
+        <h2>Perfiles encontrados:</h2>
+        {% for resultado in resultados %}
+            <a href="{% url 'profile_detail' resultado.username %}">{{ resultado.username }}</a>
+            <br>
+            <br>
+        {% endfor %}
+</div>
+{% else %}
+    <p>No se encontraron resultados.</p>
+{% endif %}
+{%endblock%}

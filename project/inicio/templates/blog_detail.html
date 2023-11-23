@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{%load tz%}
+{% block content %}
+<br>
+    <div style="width:700px"class="text-block">
+        
+        <p><strong>{{ entry.author.username }}</strong></p>
+        <h1>{{ entry.Titulo }}</h1>
+        <h2>{{ entry.Subtitulo }}</h2>
+        <p>{{ entry.Texto }}</p>
+        
+        {% if entry.Imagen %}
+        <center>
+            <img src="{{ entry.Imagen.url }}" alt="Blog Imagen" style="max-width: 100%; max-height: 300px;">
+        </center>
+        {% endif %}
+        <p>Likes: {{ entry.likes.count }}</p>
+        <p>Fecha de creación: {{ entry.created_at|date:"d/m/Y H:i" }}{% localtime on %} ({% timezone "America/Argentina/Buenos_Aires" %}Buenos Aires{% endtimezone %}){% endlocaltime %}</p>
+        <p>ID: {{ entry.id }}</p>
+        <div style="display:inline">
+            <form method="post" action="{% url 'blog' %}">{% csrf_token %}
+                <input type="hidden" name="like_entry_id" value="{{ entry.id }}">
+                <button type=submit class="button button-like">
+                    <i class="fa fa-heart"></i>
+                    <span>Like</span>
+                    <span>{{ entry.likes.count }}</span>
+                </button>
+            </form>
+        </div>
+    </div>
+  
+{% endblock %}

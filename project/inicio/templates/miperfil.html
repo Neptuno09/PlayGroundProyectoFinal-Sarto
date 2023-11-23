@@ -1,0 +1,51 @@
+{%extends "base.html"%}
+{%block content%}
+<center>
+    {% if user.is_authenticated%}
+    <br>    
+    <div class="text-block">
+        <h1>Mi Perfil</h1>
+        <h2>Opciones</h2>
+    </div>
+    
+    <br>
+        <div class="text-block">
+            <h3>Cambiar Avatar</h3>
+            <form method="post" action="" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{ avatar_form.as_p }}
+                <br>
+                <button type="submit" name="avatar_form">Guardar</button>
+            </form>      
+            {% if user_profile.avatar %}
+                <br>
+                <img id="imagenAumentable" src="{{ user_profile.avatar.url }}" alt="Avatar">
+            {% endif %}
+        </div>
+        <br>
+            <div class="text-block">
+                
+                <h3>Tu biografía</h3>
+                <form method="post" action="" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {{ bio_form.as_p }}
+                    <br>
+                    <button type="submit" name="bio_form">Guardar</button>
+                </form>
+            </div>    
+            <br>
+            <div class="text-block">
+                <h3>Tu biografía actual</h3>
+                <p>{{ bio_actual }}</p>
+            </div>
+
+
+    {% else %}
+        <br><br>
+        <div class="text-block">
+            <center><h1 style="color:black">Aún no has iniciado sesión, presiona el botón ubicado arriba a la derecha para hacerlo.</h1></center>
+        </div>
+    </center>
+    {% endif %}
+{% endblock %}
+

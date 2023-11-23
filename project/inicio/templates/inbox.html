@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <br>
+    <div class="text-block">
+        <h2>Bandeja de Entrada</h2>
+    </div>
+    <br>
+        {% for message in received_messages %}
+            <div class="text-block">
+                <h3>{{ message.sender.username }} te envió un mensaje:</h3>
+                <p>{{ message.content }}</p>
+                <p>Enviado el: {{ message.timestamp }}</p>
+                <a href="{% url 'send_message' recipient_username=message.sender.username %}">Responder</a>
+            </div>
+            <br>
+        {% endfor %}
+{% endblock %}  

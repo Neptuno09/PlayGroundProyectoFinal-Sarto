@@ -1,0 +1,59 @@
+{% load static %}
+
+<!DOCTYPE html>
+
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="{% static 'mystyle.css' %}">
+        <script src='{%static "code.js"%}'></script>
+            <!--Fuente-->
+            <!--↓↓↓↓↓↓-->
+        <link href="https://fonts.googleapis.com/css2?family=Inter&family=Roboto+Slab:wght@300;400&display=swap" rel="stylesheet"> 
+        <link rel="icon" type="image/x-icon" href='{%static "favicon.ico"%}?'>
+        <title>Minecraft: Ulinet</title>
+            </head>
+            <body>
+            <nav>
+              <ul class="ul_btn">
+                <li><a href="/"><img height=20 src="{%static 'mculinet.png'%}" alt="mculinet"></a></li>
+                <li><a href="{%url 'blog'%}">Blog</a></li>
+                <li><a href="{%url 'resultados'%}">Buscar perfiles</a></li>
+                <li><a href="{%url 'mensajes'%}">Mensajes</a></li>
+                <li class="der"><a style="background-color: darkgreen" href="{%url 'sobremi'%}">Sobre mí</a></li>
+                
+                <li class="der"><a href="admin/">Administración</a></li>
+                {% if user.is_authenticated %}
+                <li class="der">
+                  <div class="perfil-container">
+                    <a href="{%url 'miperfil'%}">
+                      {% if user_profile.avatar %}
+                        <img height=31 src="{{ user_profile.avatar.url }}" alt="Avatar">
+                      {%else%}
+                        <img height=31 src="{%static 'defpfp.png'%}" alt="defpfp">
+                      {% endif %}
+                    </a>
+                    
+                  </div>
+                </li>
+                
+                {% else %}
+                  <li class="der"><a href="registrarse">Registrarse</a></li>
+                  <li class="der"><a href="iniciar_sesion">Iniciar sesión</a></li>
+                {% endif %}
+                {% if user.is_authenticated %}
+                <li class="der">
+                  <form action='{%url "cerrar_sesion"%}' method="post">{% csrf_token %}
+                    <button style="font-family: Inter; font-size: 17.5px; display: block; color: white; text-align: center; padding: 20px 16px; text-decoration: none; background-color: transparent; border: none; cursor: pointer;" onmouseover="this.style.backgroundColor='#111'" onmouseout="this.style.backgroundColor='transparent'">Cerrar sesión</button>
+
+                    </form>
+                    </li> 
+                {% endif %}
+                
+              </ul>
+            </nav>
+            {%block content%}
+            {%endblock%}
+            </body>       
+</html>
